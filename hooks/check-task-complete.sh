@@ -9,29 +9,33 @@ git rev-parse --git-dir >/dev/null 2>&1 || exit 0
 
 branch=$(git branch --show-current 2>/dev/null)
 [ -z "$branch" ] && exit 0
-case "$branch" in
-  main|master) exit 0 ;;
-esac
 
 block() {
-  msg="Unfinished task work on branch '$branch'. Check the current state (uncommitted changes, unpushed commits, missing PR, etc.) and execute the remaining steps of the \`task\` skill from wherever you currently are in its pipeline. The user has authorized auto-commit, auto-push, and auto-PR creation — do not pause to confirm. Do not stop until the pipeline is complete."
+  msg="Unfinished task work on branch '$branch' (uncommitted changes, unpushed commits, or missing PR). You MUST invoke the \`task\` skill NOW via the Skill tool and let it drive the remaining pipeline to completion — do not ask the user what to do, do not propose options, do not commit to the default branch (the \`task\` skill + \`pull-request\` skill handle branching automatically). The user has pre-authorized auto-commit, auto-push, and auto-PR creation. Do not stop until the pipeline is complete."
   jq -nc --arg msg "$msg" '{decision: "block", reason: $msg}'
   exit 0
 }
 
-[ -n "$(git status --porcelain 2>/dev/null)" ] && block
+# --- 1. Staged or unstaged changes? -> block ---
+git diff --quiet || block
+git diff --quiet --staged || block
 
-git remote get-url origin >/dev/null 2>&1 || exit 0
+# --- 2. Unpushed commits? -> block ---
+if git rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1; then
+  git diff --quiet '@{u}' HEAD || block
+fi
 
-git rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1 || block
-[ -n "$(git log '@{u}..HEAD' --oneline 2>/dev/null)" ] && block
+# --- 3. Branch differs from default branch but has no PR? -> block ---
+default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|^refs/remotes/origin/||')
+[ -z "$default_branch" ] && default_branch=main
 
-remote_url=$(git remote get-url origin 2>/dev/null)
-if [[ "$remote_url" =~ github\.com[:/] ]] \
-   && command -v gh >/dev/null 2>&1 \
-   && gh auth status >/dev/null 2>&1 \
-   && gh repo view --json name >/dev/null 2>&1; then
-  gh pr view --json url >/dev/null 2>&1 || block
+if ! git diff --quiet "origin/$default_branch"...HEAD 2>/dev/null; then
+  remote_url=$(git remote get-url origin 2>/dev/null)
+  if [[ "$remote_url" =~ github\.com[:/] ]] \
+     && command -v gh >/dev/null 2>&1 \
+     && gh auth status >/dev/null 2>&1; then
+    gh pr view --json url >/dev/null 2>&1 || block
+  fi
 fi
 
 exit 0
