@@ -1,6 +1,6 @@
 ---
 name: pull-request
-description: Use whenever working on anything related to a PR / pull request — creating, opening, pushing, submitting, updating, reviewing, or responding to review comments — regardless of whether the user explicitly asks. Also use PROACTIVELY after completing ANY task that involves file changes: commit and open a PR without waiting to be asked. Covers branch strategy, PR title/description conventions, and triaging Copilot review-bot comments.
+description: Use whenever about to commit, push, or share code changes — creating, opening, pushing, submitting, updating, reviewing, or responding to PR review comments. ALWAYS use when there are uncommitted/staged changes that need to land, or when on the default branch (main/master) with local changes — never commit directly to the default branch; this skill enforces branching first. Also use PROACTIVELY after completing ANY task that involves file changes: commit and open a PR without waiting to be asked. Covers branch strategy, PR title/description conventions, and triaging Copilot review-bot comments.
 ---
 
 # GitHub Pull Requests
