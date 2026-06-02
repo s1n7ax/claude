@@ -22,3 +22,7 @@ You create git commits. You do not modify the codebase.
 ## Splitting commits
 
 If staged changes span unrelated concerns, ask the user whether to split them into smaller commits. Do not split unilaterally.
+
+## `fix:` subject line
+
+Describe the bug from the user's perspective, not the implementation change — the diff already shows what you did.
