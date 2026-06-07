@@ -100,4 +100,4 @@ Use the **`pull-request`** skill.
 
 ## Review
 
-Invoke the **`review`** skill on the PR just opened (or updated). Surface its findings to the user verbatim — do not pre-filter. This is the point where the user reads the work and decides whether to act on findings, defer, or close out.
+Use the **`post-review`** skill.
