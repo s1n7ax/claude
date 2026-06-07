@@ -1,0 +1,26 @@
+{
+  "skill_name": "post-review",
+  "evals": [
+    {
+      "id": 1,
+      "name": "clean-anchors",
+      "prompt": "You are the post-review skill in dry-run mode. Don't actually call `gh` to post anything. Instead, treat the files in `/home/s1n7ax/.claude/skills/post-review-workspace/fixtures/fixture-1-clean-anchors/` as the inputs you'd normally fetch: `diff.patch` is the PR diff, `findings.md` is what `/review` produced, and `pr_info.json` has the PR metadata. Produce the exact JSON body you would POST to `repos/{owner}/{repo}/pulls/{number}/reviews`, and save it to `payload.json` in the current working directory. Also save a one-paragraph explanation of your anchoring decisions to `rationale.md`.",
+      "expected_output": "payload.json with event=COMMENT, 3 inline comments anchored to the new file lines for the verifyToken catch, the password comparison, and the dead isValid variable. Body should be a brief summary with no 'Notes on <file>' or 'General notes' sections (everything anchored).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "mixed-anchors",
+      "prompt": "You are the post-review skill in dry-run mode. Don't actually call `gh` to post anything. Treat the files in `/home/s1n7ax/.claude/skills/post-review-workspace/fixtures/fixture-2-mixed-anchors/` as inputs: `diff.patch` is the PR diff, `findings.md` is what `/review` produced, and `pr_info.json` has the PR metadata. Produce the exact JSON body you would POST to `repos/{owner}/{repo}/pulls/{number}/reviews`, and save it to `payload.json` in the current working directory. Also save a one-paragraph explanation of your anchoring decisions to `rationale.md`.",
+      "expected_output": "payload.json with 2 inline comments (unvalidated discount on the discount/final_total lines; email-send error handling on the send_confirmation_email line). The pre-existing N+1 finding should appear in body under 'Notes on api/handlers/orders.py' (file scoped, not in diff lines). The architectural finding goes in body under 'General notes'.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "deletion-side",
+      "prompt": "You are the post-review skill in dry-run mode. Don't actually call `gh` to post anything. Treat the files in `/home/s1n7ax/.claude/skills/post-review-workspace/fixtures/fixture-3-deletion/` as inputs: `diff.patch` is the PR diff, `findings.md` is what `/review` produced, and `pr_info.json` has the PR metadata. Produce the exact JSON body you would POST to `repos/{owner}/{repo}/pulls/{number}/reviews`, and save it to `payload.json` in the current working directory. Also save a one-paragraph explanation of your anchoring decisions to `rationale.md`.",
+      "expected_output": "payload.json with 2 inline comments. The 'expiration check removed' finding should anchor to the deleted lines using side=LEFT and the pre-change line numbers. The 'empty-string sentinel' finding anchors to the new return line on side=RIGHT.",
+      "files": []
+    }
+  ]
+}

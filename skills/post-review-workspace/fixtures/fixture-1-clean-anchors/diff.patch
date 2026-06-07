@@ -1,0 +1,19 @@
+diff --git a/src/auth/login.ts b/src/auth/login.ts
+index 1111111..2222222 100644
+--- a/src/auth/login.ts
++++ b/src/auth/login.ts
+@@ -10,6 +10,15 @@ export async function login(email: string, password: string) {
+   const user = await db.users.findOne({ email });
+   if (!user) return null;
+
++  const token = req.headers['x-auth-token'];
++  try {
++    await verifyToken(token);
++  } catch (e) {
++    // ignore
++  }
++
++  const isValid = password === user.password;
++
+   return { user, session: createSession(user) };
+ }

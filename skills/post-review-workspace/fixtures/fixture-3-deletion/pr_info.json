@@ -1,0 +1,7 @@
+{
+  "owner": "acme",
+  "repo": "platform",
+  "number": 17,
+  "head_sha": "1234567890abcdef1234567890abcdef12345678",
+  "base_branch": "main"
+}

@@ -1,0 +1,19 @@
+diff --git a/lib/cache.go b/lib/cache.go
+index 3333333..4444444 100644
+--- a/lib/cache.go
++++ b/lib/cache.go
+@@ -40,11 +40,6 @@ func (c *Cache) Get(key string) (string, bool) {
+ 	c.mu.RLock()
+ 	defer c.mu.RUnlock()
+
+-	entry, ok := c.entries[key]
+-	if !ok {
+-		return "", false
+-	}
+-	if entry.expiresAt.Before(time.Now()) {
+-		return "", false
+-	}
+-	return entry.value, true
++	entry := c.entries[key]
++	return entry.value, entry.value != ""
+ }
