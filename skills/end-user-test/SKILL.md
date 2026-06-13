@@ -23,4 +23,4 @@ Upload the test proofs — logs, screenshots, command output, whatever you produ
 
 The form of the proof doesn't matter; what matters is that it lands on the ticket or PR so reviewers can see it without checking out the branch.
 
-When the change has a visible before/after — a bug fix, a UI tweak, a behavior change.
+When the change has a visible before/after — a bug fix, a UI tweak, a behavior change etc. — attach the proofs with both states.
