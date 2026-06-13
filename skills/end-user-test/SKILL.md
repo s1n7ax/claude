@@ -16,3 +16,21 @@ Theme: exercise the change the way the end user would, not via internal helpers.
 Also run the project's existing test suite.
 
 If anything fails: fix, retest, repeat. Do not move on with failing tests.
+
+## Record the results
+
+Capture evidence that the change actually works so later stages (PR description, review, future tasks) can cite it instead of re-running everything.
+
+Write to `.claude/test-results/<ticket-id>.md` in the repo root (create the directory if missing). One file per ticket, appended on each test run.
+
+Each entry should include:
+
+- UTC timestamp and the commit SHA tested
+- What was exercised (endpoint, UI flow, CLI command, script) and the exact command(s)
+- Observed output — request/response bodies, screenshots/links, log excerpts, exit codes
+- Test-suite invocation and pass/fail summary
+- Verdict: pass / fail / partial, with a one-line reason
+
+Keep entries terse — the goal is reproducible proof, not narrative. Link to screenshots or large logs rather than inlining them.
+
+If no ticket ID is available, use the branch name as the filename.
