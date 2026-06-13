@@ -46,7 +46,7 @@
     "php-lsp@claude-plugins-official": true,
     "kotlin-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
