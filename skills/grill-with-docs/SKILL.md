@@ -5,9 +5,13 @@ description: Grilling session that challenges your plan against the existing dom
 
 <what-to-do>
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one.
 
-Ask the questions one at a time, waiting for feedback on each question before continuing.
+Ask one question per turn using the AskUserQuestion tool. Enumerate 2-4 distinct paths as options. Make the first option your recommendation: append "(Recommended)" to its label and put your reasoning in its description. Use the other options' descriptions to explain their tradeoffs.
+
+Use multiSelect only when the question is genuinely multi-pick (e.g., "which concerns are you defending against?"). Otherwise keep it single-select to force commitment to one path.
+
+If a question can't be enumerated as 2-4 distinct options (genuinely open-ended exploration), ask it in plain prose instead.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
 
