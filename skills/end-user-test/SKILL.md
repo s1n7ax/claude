@@ -22,3 +22,5 @@ If anything fails: fix, retest, repeat. Do not move on with failing tests.
 Upload the test proofs — logs, screenshots, command output, whatever you produced — as a comment on the ticket. If no ticket exists, post on the PR instead.
 
 The form of the proof doesn't matter; what matters is that it lands on the ticket or PR so reviewers can see it without checking out the branch.
+
+When the change has a visible before/after — a bug fix, a UI tweak, a behavior change.
