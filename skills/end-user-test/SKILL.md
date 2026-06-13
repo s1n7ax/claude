@@ -34,3 +34,19 @@ Each entry should include:
 Keep entries terse — the goal is reproducible proof, not narrative. Link to screenshots or large logs rather than inlining them.
 
 If no ticket ID is available, use the branch name as the filename.
+
+## Post the proofs externally
+
+Reviewers should not have to check out the branch to see that the change works. Publish the proof:
+
+- **If a ticket exists:** post a comment on the ticket
+- **Otherwise:** post the same comment on the PR (open the PR first if needed via the `pull-request` skill)
+
+The comment must include:
+
+1. **Test steps** — the exact commands or click-paths a reviewer would re-run, in order
+2. **Results** — request/response excerpts, log snippets, exit codes, suite output
+3. **Screenshots and artifacts** — upload binary artifacts (screenshots, recordings, large logs) by drag-drop equivalent: use `gh issue comment --body-file` / `gh pr comment --body-file` with markdown that references uploaded image URLs. Capture screenshots with whatever the project supports (Playwright, `scrot`, browser devtools). Inline small text artifacts in fenced blocks; link to anything large.
+4. **Verdict** — pass / fail / partial, matching the local `.claude/test-results/` entry
+
+Keep the comment self-contained — a reviewer reading only the ticket/PR comment should be able to reproduce the test and judge the result without opening the local results file.
