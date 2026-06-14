@@ -13,6 +13,9 @@
   },
   "model": "opus",
   "enableAllProjectMcpServers": true,
+  "env": {
+    "ENABLE_LSP_TOOL": "1"
+  },
   "hooks": {
     "Stop": [
       {
@@ -21,6 +24,18 @@
             "type": "command",
             "command": "/home/s1n7ax/.claude/hooks/check-task-complete.sh",
             "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_response.filePath // .tool_input.file_path' | { read -r f; npx --yes prettier --write --ignore-unknown \"$f\"; } 2>/dev/null || true",
+            "async": true
           }
         ]
       }
@@ -46,7 +61,7 @@
     "php-lsp@claude-plugins-official": true,
     "kotlin-lsp@claude-plugins-official": true
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
