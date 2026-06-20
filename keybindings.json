@@ -19,7 +19,13 @@
     {
       "context": "Chat",
       "bindings": {
-        "ctrl+k ctrl+m": "chat:modelPicker"
+        "ctrl+n": "chat:modelPicker"
+      }
+    },
+    {
+      "context": "Select",
+      "bindings": {
+        "ctrl+e": "select:previous"
       }
     }
   ]
