@@ -29,6 +29,13 @@
       }
     },
     {
+      "context": "Autocomplete",
+      "bindings": {
+        "ctrl+n": "autocomplete:next",
+        "ctrl+e": "autocomplete:previous"
+      }
+    },
+    {
       "context": "ModelPicker",
       "bindings": {
         "ctrl+m": "modelPicker:decreaseEffort",
