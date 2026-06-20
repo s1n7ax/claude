@@ -15,6 +15,12 @@
         "ctrl+u": "scroll:halfPageUp",
         "ctrl+d": "scroll:halfPageDown"
       }
+    },
+    {
+      "context": "Chat",
+      "bindings": {
+        "ctrl+k ctrl+m": "chat:modelPicker"
+      }
     }
   ]
 }
