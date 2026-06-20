@@ -27,6 +27,13 @@
       "bindings": {
         "ctrl+e": "select:previous"
       }
+    },
+    {
+      "context": "ModelPicker",
+      "bindings": {
+        "ctrl+m": "modelPicker:decreaseEffort",
+        "ctrl+i": "modelPicker:increaseEffort"
+      }
     }
   ]
 }
