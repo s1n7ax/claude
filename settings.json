@@ -11,6 +11,7 @@
     "defaultMode": "bypassPermissions"
   },
   "model": "opus",
+  "outputStyle": "Caveman",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "Stop": [
