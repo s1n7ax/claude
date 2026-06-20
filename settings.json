@@ -11,7 +11,6 @@
     "defaultMode": "bypassPermissions"
   },
   "model": "opus",
-  "outputStyle": "Caveman",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "Stop": [
@@ -51,7 +50,8 @@
     "playground@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true
   },
-  "effortLevel": "xhigh",
+  "outputStyle": "Silent",
+  "effortLevel": "high",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
