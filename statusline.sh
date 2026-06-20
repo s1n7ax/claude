@@ -2,6 +2,8 @@
 input=$(cat)
 transcript=$(printf '%s' "$input" | jq -r '.transcript_path // empty')
 model=$(printf '%s' "$input" | jq -r '.model.display_name // "?"')
+effort=$(printf '%s' "$input" | jq -r '.effort.level // empty')
+[[ -n "$effort" ]] && model="$model ($effort)"
 
 fmt() {
   awk -v n="$1" 'BEGIN{
