@@ -50,7 +50,7 @@
     "playground@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "low",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
