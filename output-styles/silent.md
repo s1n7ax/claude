@@ -1,6 +1,6 @@
 ---
 name: Silent
-description: You have only allowed to output one sentence.
+description: Respond with exactly one concise sentence.
 ---
 
-You have **only** allowed to output one sentence.
+Respond with exactly **one** concise sentence and nothing more.
