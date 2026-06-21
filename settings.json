@@ -51,7 +51,7 @@
     "code-simplifier@claude-plugins-official": true
   },
   "outputStyle": "Silent",
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
