@@ -3,6 +3,8 @@
     "allow": ["Bash", "Read", "Write", "Edit", "WebFetch", "WebSearch"],
     "defaultMode": "bypassPermissions"
   },
+  "skipAutoPermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": true,
   "model": "opus",
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -45,9 +47,7 @@
   "outputStyle": "Silent",
   "effortLevel": "xhigh",
   "tui": "fullscreen",
-  "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "agentPushNotifEnabled": true
 }
