@@ -11,7 +11,7 @@ description: Use when writing code that throws, raises, or creates errors/except
 - Custom error types extend the language's base error class.
 - Distinguish **expected** errors (normal flow: validation, not-found, auth) from **unexpected** errors (network, DB, infra). Give each an appropriate named type so callers can react differently.
 - Name types after the failure mode, not the layer: `ValidationError`, `NotFoundError`, `AuthenticationError` — not `ServiceError` or `UtilError`.
-- Before throwing a wrapped or translated error, log the original cause, otherwise it disappears up the stack.
+- Log whenever an error occurs — at minimum before throwing, wrapping, or translating one — so the failure leaves a trace and the original cause is not erased up the stack. Emit it at `error` level through the project's configured logger; see the **logging** skill for which logger to use, what to include, and how to structure the entry.
 - Document thrown errors in doc comments using the language's convention (`@throws` for JSDoc / Javadoc / KDoc).
 - When a function's error behavior changes, update its doc comment to match.
 
