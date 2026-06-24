@@ -18,18 +18,21 @@ block() {
   exit 0
 }
 
-# --- Step 1: unstaged changes? ---
+# --- Step 1: untracked files? (git diff doesn't see these) ---
+[ -n "$(git ls-files --others --exclude-standard)" ] && block "untracked files in the working tree"
+
+# --- Step 2: unstaged changes? ---
 git diff --quiet || block "unstaged changes in the working tree"
 
-# --- Step 2: staged but uncommitted changes? ---
+# --- Step 3: staged but uncommitted changes? ---
 git diff --quiet --staged || block "staged changes that are not committed"
 
-# --- Step 3: committed but unpushed changes? ---
+# --- Step 4: committed but unpushed changes? ---
 if git rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1; then
   git diff --quiet '@{u}' HEAD || block "local commits that have not been pushed"
 fi
 
-# --- Step 4: non-default branch with no open PR? ---
+# --- Step 5: non-default branch with no open PR? ---
 default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|^refs/remotes/origin/||')
 [ -z "$default_branch" ] && default_branch=main
 
