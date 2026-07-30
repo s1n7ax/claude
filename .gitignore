@@ -24,3 +24,5 @@ plugins/known_marketplaces.json
 plugins/.last_inuse_sweep
 
 plans
+
+plugins/plugin-catalog-cache.json

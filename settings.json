@@ -1,10 +1,15 @@
 {
   "permissions": {
-    "allow": ["Bash", "Read", "Write", "Edit", "WebFetch", "WebSearch"],
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "WebFetch",
+      "WebSearch"
+    ],
     "defaultMode": "bypassPermissions"
   },
-  "skipAutoPermissionPrompt": true,
-  "skipDangerousModePermissionPrompt": true,
   "model": "opus",
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -42,12 +47,15 @@
     "context7@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "playground@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true
+    "code-simplifier@claude-plugins-official": true,
+    "mattpocock-skills@claude-plugins-official": true
   },
   "outputStyle": "Silent",
   "effortLevel": "xhigh",
   "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
