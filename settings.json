@@ -1,6 +1,13 @@
 {
   "permissions": {
-    "allow": ["Bash", "Read", "Write", "Edit", "WebFetch", "WebSearch"],
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "WebFetch",
+      "WebSearch"
+    ],
     "defaultMode": "bypassPermissions"
   },
   "model": "opus",
@@ -48,6 +55,7 @@
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
+  "autoCompactEnabled": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
