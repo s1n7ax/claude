@@ -13,7 +13,7 @@ the skill is dead weight: delete it.
 
 ```bash
 skills/run-evals.sh                 # every skill
-skills/run-evals.sh logging         # one skill
+skills/run-evals.sh todo-comments   # one skill
 ```
 
 Raw JSON lands in `<skill>/evals/results/latest.json`, a browsable HTML report
@@ -36,6 +36,20 @@ Each case also carries a `skill-fired` grader marked `arm: with-only`. It is
 not scored; it only confirms the skill actually triggered in the with arm. If
 it fails, the case is measuring nothing — fix the skill's `description` before
 reading the delta.
+
+## Last measured (2026-09-16, claude-sonnet-5, 3 runs per arm)
+
+| Skill | with | without | Δ | verdict |
+|---|---|---|---|---|
+| todo-comments | 0.69 | 0.00 | **+0.69** | keep |
+| single-line-code-comments | 0.94 | 0.38 | **+0.56** | keep |
+| error-handling | 0.91 | 0.49 | **+0.42** | keep |
+| git-commit | 0.84 | 0.48 | **+0.35** | keep |
+| ~~logging~~ | 0.97 | 0.85 | +0.11 | **deleted** |
+
+`logging` was removed on the strength of this run: the baseline already reached
+for the project's configured logger and structured fields without being told,
+so the skill was only worth 0.11 of a mostly-already-passing score.
 
 ## Layout
 
