@@ -11,7 +11,12 @@ if [[ -n "$used" ]]; then
   left=$(awk -v u="$used" 'BEGIN{ l=100-u; if (l<0) l=0; printf "%.0f", l }')
   mins=$(( (resets - $(date +%s) + 59) / 60 ))
   (( mins < 0 )) && mins=0
-  limit=" | session ${left}% left, resets $(date -d "@$resets" '+%-I:%M %p') (in $((mins / 60))h$((mins % 60))m)"
+  if (( mins < 60 )); then
+    eta="${mins} min"
+  else
+    eta="$((mins / 60))h$((mins % 60))m"
+  fi
+  limit=" | session ${left}% left, resets $(date -d "@$resets" '+%-I:%M %p') (in ${eta})"
 fi
 
 fmt() {
