@@ -44,4 +44,5 @@ diff --git a/src/retry.ts b/src/retry.ts
  }
 ```
 
-I can't give you shell access right now, so just give me the commit message you'd use.
+Shell access is broken on this box, so you can't run git yourself — write out the
+exact `git commit` command you'd run for me to paste.
