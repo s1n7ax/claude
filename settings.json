@@ -12,18 +12,6 @@
   },
   "model": "opus",
   "enableAllProjectMcpServers": true,
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/s1n7ax/.claude/hooks/check-task-complete.sh"
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "/home/s1n7ax/.claude/statusline.sh"
@@ -58,5 +46,8 @@
   "autoCompactEnabled": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "env": {
+    "CLAUDE_CODE_WALNUT_SPIRE": "1"
+  }
 }

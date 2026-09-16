@@ -27,3 +27,5 @@ plugins/.last_inuse_sweep
 plans
 
 plugins/plugin-catalog-cache.json
+
+skills/*/evals/results/
