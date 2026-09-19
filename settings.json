@@ -49,5 +49,19 @@
   "skipAutoPermissionPrompt": true,
   "env": {
     "CLAUDE_CODE_WALNUT_SPIRE": "1"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/s1n7ax/.claude/hooks/git-work-status.sh",
+            "timeout": 15,
+            "statusMessage": "Checking git state..."
+          }
+        ]
+      }
+    ]
   }
 }
