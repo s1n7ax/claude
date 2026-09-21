@@ -42,7 +42,7 @@ reading the delta.
 | Skill | with | without | Δ | verdict |
 |---|---|---|---|---|
 | todo-comments | 0.69 | 0.00 | **+0.69** | keep |
-| single-line-code-comments | 0.94 | 0.38 | **+0.56** | keep |
+| ~~single-line-code-comments~~ | 0.94 | 0.38 | +0.56 | **deleted** |
 | error-handling | 0.91 | 0.49 | **+0.42** | keep |
 | git-commit | 0.84 | 0.48 | **+0.35** | keep |
 | ~~logging~~ | 0.97 | 0.85 | +0.11 | **deleted** |
@@ -50,6 +50,10 @@ reading the delta.
 `logging` was removed on the strength of this run: the baseline already reached
 for the project's configured logger and structured fields without being told,
 so the skill was only worth 0.11 of a mostly-already-passing score.
+
+`single-line-code-comments` was removed later for a different reason — not the
+numbers, which were strong, but the policy itself: a blanket ban on `//` and `#`
+was more rule than this project wants to carry.
 
 ## Layout
 

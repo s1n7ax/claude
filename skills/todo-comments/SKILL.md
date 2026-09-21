@@ -8,7 +8,7 @@ description: Use whenever writing or requested to add a TODO, FIXME, or HACK mar
 ## Steps
 
 1. Create an issue in the project's tracker (GitHub, Jira, Linear, etc.) for the work first
-2. Write the TODO as a doc comment (per the `single-line-code-comments` policy) with the issue URL on the next line
+2. Write the TODO as a doc comment (`/** */`, `"""..."""`, `///`, or the language equivalent) with the issue URL on the next line
 
 ## Why
 
