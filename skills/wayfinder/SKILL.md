@@ -106,7 +106,13 @@ Ask **one** question per turn, and follow this shape every time:
 3. **Give your recommendation** and one line of reasoning. You have more context on the problem than the phrasing shows; hiding your opinion wastes it.
 4. **Ask it again with `AskUserQuestion`** — same question, same options. The user must not have to scroll up to see the choices after reading the explanation.
 
-In the `AskUserQuestion` call: 2–3 real options plus a final option labelled **"Explain more first"**. Each option's `description` is one "Pick this if…" line. When the user picks *Explain more first* — or types their own question — answer it, then ask the same question again. There is no limit on how many times this can loop, and no limit on the number of questions overall. A map with thirty answered requirement questions is a good map.
+In the `AskUserQuestion` call: 2–3 real options plus a final option labelled **"Explain more first"**. Each option's `description` is one "Pick this if…" line. Never write the options as if they were the only answers — the tool always adds an **Other** box where the user types their own, and your options are just the ones you could think of.
+
+Three things can come back:
+
+- **A listed option** — record it and move on.
+- **Other, with an answer of their own** — this is the best case. The user saw something you missed. Record their words as the requirement, and if it changes the shape of the map, say so.
+- **Explain more first, or a question typed into Other** — answer it, then ask the same question again with the same options. There is no limit on how many times this can loop, and no limit on the number of questions overall. A map with thirty answered requirement questions is a good map.
 
 **Use `preview` whenever the options differ in something you can show**: a CLI session, a config file, a screen layout, a JSON payload, an event order. A senior engineer reads a concrete shape faster than a paragraph about it.
 
@@ -120,7 +126,7 @@ In the `AskUserQuestion` call: 2–3 real options plus a final option labelled *
 >
 > I would take the toggle: one key, and a sound on stop removes the "did it really stop?" doubt.
 
-…then the same question and the same three options go into `AskUserQuestion`, plus *Explain more first*.
+…then the same question and the same three options go into `AskUserQuestion`, plus *Explain more first* — and the user can always ignore all four and type a fourth way to stop a recording into *Other*.
 
 Record each answer on the ticket under **Requirements** right away — one line, in the user's words, not yours. Do not batch them up until the end; a dead session must not lose an answer.
 
